@@ -4,9 +4,19 @@
     --Green-950: hsl(179, 100%, 13%);
     --Transparent-white: hsla(0, 0%, 100%, 0.75);
     --Gray-100: hsl(0, 0%, 95%);
-    --border-radius: 10px;
+    --border-radius-card: 10px;
+    
+    --font-family-html: "Lexend Deca", sans-serif;
+    --font-weight-html: 400;
+    --font-style-html: normal;
+    --line-height-html: 1.5;
 
-    --font-size: 15px;
+    --font-family-title: "Big Shoulders", sans-serif;
+    --font-weight-title: 700;
+    --font-style-title: normal;
+    --font-size-title: 2.25rem;
+
+    --font-size-p: 0.95rem;
 }
 
 * {
@@ -16,36 +26,34 @@
 }
 
 html {
-    font-size: var(--font-size);
-    font-family: "Lexend Deca", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    place-content: center;
-    position: relative;
+    font-family: var(--font-family-html);
+    font-style: var(--font-style-html);
+    line-height: var(--line-height-html);
 }
 
 main {
-    width: 100%;
-    max-width: 1440px;
+    padding: 4rem 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    place-content: center;
-    padding: 60px;
+    justify-content: center;
+}
+
+.wrapper {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 2rem;
 }
 
 .sedans {
     background-color: var(--Gold-500);
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius-card);
+    border-top-right-radius: var(--border-radius-card);
 }
 
 .suvs {
@@ -54,38 +62,32 @@ main {
 
 .luxury {
     background-color: var(--Green-950);
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-}
-
-.card {
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
+    border-bottom-left-radius: var(--border-radius-card);
+    border-bottom-right-radius: var(--border-radius-card);
 }
 
 .card h2 {
     text-transform: uppercase;
     color: var(--Gray-100);
-    font-family: "Big Shoulders", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 2.25rem;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    font-style: var(--font-style-title);
 }
 
 .card p {
-    color: var(--Transparent-white);
-    line-height: 1.5;
+    color: var(--Gray-100);
+    font-size: var(--font-size-p);
 }
 
 .card a {
+    align-items: center;
     justify-self: start;
     background-color: var(--Gray-100);
-    margin-top: 40px;
-    padding: 15px 30px;
-    border-radius: 25px;
+    padding: 0.75rem 1.8rem;
+    border-radius: 30px;
+    text-transform: capitalize;
     text-decoration: none;
+    margin-top: 2rem;
 }
 
 .sedans a {
@@ -100,34 +102,54 @@ main {
     color: var(--Green-950);
 }
 
-@media (max-width: 860px) {
+@media (min-width: 660px) {
+    html,
     body {
-        display: block;
-    }
-
-    .attribution {
-        position: static;
+        height: 100%;
     }
 
     main {
-        grid-template-columns: 1fr;
+        height: calc(100% - 20px);
+        place-content: center;
     }
 
-    .sedans {
-        background-color: var(--Gold-500);
-        border-top-left-radius: var(--border-radius);
-        border-top-right-radius: var(--border-radius);
-        border-bottom-left-radius: unset;
-    }
-
-    .suvs {
-        background-color: var(--Cyan-800);
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .luxury {
-        background-color: var(--Green-950);
+        grid-column: 1 / -1;
+    }
+
+    .sedans {
         border-top-right-radius: unset;
-        border-bottom-left-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
+    }
+
+    .suvs {
+        border-top-right-radius: var(--border-radius-card);
+    }
+}
+
+@media (min-width: 860px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card a {
+        margin-top: 4rem;
+    }
+
+    .luxury {
+        grid-column: unset;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: var(--border-radius-card);
+    }
+
+    .suvs {
+        border-top-right-radius: unset;
+    }
+
+    .sedans {
+        border-bottom-left-radius: var(--border-radius-card);
     }
 }
