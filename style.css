@@ -1,0 +1,133 @@
+:root {
+    --Gold-500: hsl(31, 77%, 52%);
+    --Cyan-800: hsl(184, 100%, 22%);
+    --Green-950: hsl(179, 100%, 13%);
+    --Transparent-white: hsla(0, 0%, 100%, 0.75);
+    --Gray-100: hsl(0, 0%, 95%);
+    --border-radius: 10px;
+
+    --font-size: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size);
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    place-content: center;
+    position: relative;
+}
+
+main {
+    width: 100%;
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-content: center;
+    padding: 60px;
+}
+
+.sedans {
+    background-color: var(--Gold-500);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.suvs {
+    background-color: var(--Cyan-800);
+}
+
+.luxury {
+    background-color: var(--Green-950);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.card {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.card h2 {
+    text-transform: uppercase;
+    color: var(--Gray-100);
+    font-family: "Big Shoulders", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.25rem;
+}
+
+.card p {
+    color: var(--Transparent-white);
+    line-height: 1.5;
+}
+
+.card a {
+    justify-self: start;
+    background-color: var(--Gray-100);
+    margin-top: 40px;
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.sedans a {
+    color: var(--Gold-500);
+}
+
+.suvs a {
+    color: var(--Cyan-800);
+}
+
+.luxury a {
+    color: var(--Green-950);
+}
+
+@media (max-width: 860px) {
+    body {
+        display: block;
+    }
+
+    .attribution {
+        position: static;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .sedans {
+        background-color: var(--Gold-500);
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        border-bottom-left-radius: unset;
+    }
+
+    .suvs {
+        background-color: var(--Cyan-800);
+    }
+
+    .luxury {
+        background-color: var(--Green-950);
+        border-top-right-radius: unset;
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+}
